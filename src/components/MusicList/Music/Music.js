@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Music.module.scss';
 
-import nhatKyCuaMe from '../../../media/images/nhatKyCuaMe.jpg';
+import nhatKyCuaMe from '../../../asset/images/nhatKyCuaMe.jpg';
 
 const cx = classNames.bind(styles);
 

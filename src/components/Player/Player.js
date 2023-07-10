@@ -10,7 +10,7 @@ import {
 import classNames from 'classnames/bind';
 import styles from './Player.module.scss';
 
-import nkcm from '../../media/images/nhatKyCuaMe.jpg';
+import nkcm from '../../asset/images/nhatKyCuaMe.jpg';
 
 const cx = classNames.bind(styles);
 
