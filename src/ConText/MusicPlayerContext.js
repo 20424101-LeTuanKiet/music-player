@@ -29,8 +29,8 @@ const MusicPlayerProvider = (props) => {
             },
             {
                 id: 3,
-                name: 'Nhật ký của mẹ',
-                singer: 'Hiền Thục',
+                name: 'Gió',
+                singer: 'Jank',
                 file: mp3_Gio,
                 image: img_Gio,
             },

@@ -8,13 +8,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import classNames from 'classnames/bind';
-import styles from './Player.module.scss';
 
-import nkcm from '../../asset/images/nhatKyCuaMe.jpg';
+import useMusicPlayer from '../../hooks/useMusicPlayer';
+import styles from './Player.module.scss';
 
 const cx = classNames.bind(styles);
 
 export default function Player() {
+    const { currentMusicName, currentMusicAvatar } = useMusicPlayer();
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
@@ -36,8 +38,14 @@ export default function Player() {
                 </div>
             </div>
             <div className={cx('content')}>
-                <h2 className={cx('music-name')}>Nhật ký của mẹ</h2>
-                <img className={cx('music-avatar')} src={nkcm} alt="" />
+                <h2 className={cx('music-name')}>
+                    {currentMusicName || 'Mời bạn chọn bài hát'}
+                </h2>
+                <img
+                    className={cx('music-avatar')}
+                    src={currentMusicAvatar || ''}
+                    alt={currentMusicName || ''}
+                />
             </div>
             <div className={cx('control')}>
                 <div className={cx('time-duration')}>
