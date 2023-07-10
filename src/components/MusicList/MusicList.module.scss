@@ -1,0 +1,21 @@
+.wrapper {
+    background-color: var(--background-music-list);
+    padding: 0 20px;
+    height: 100vh;
+}
+
+.music-list {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    text-align: center;
+    padding: 20px 0;
+
+    &-search-input {
+        font-size: 1.1rem;
+        padding: 5px 10px;
+        margin: 0 auto;
+        width: 100%;
+        outline: none;
+        border: none;
+    }
+}
