@@ -1,3 +1,88 @@
 .wrapper {
     background-color: var(--background-music-player);
 }
+
+.header {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+.header-volumn {
+    display: flex;
+}
+
+.volumn-control {
+    width: 100px;
+
+    &:hover ~ .volumn {
+        cursor: pointer;
+        display: block;
+    }
+}
+
+.circle {
+    border: 2px solid var(--color-background-icon);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background-icon);
+    color: #fff;
+}
+
+.volumn {
+    display: none;
+    accent-color: var(--color-text);
+
+    &:hover {
+        display: block;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-name {
+    font-size: 2rem;
+    color: var(--color-text);
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.music-avatar {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+}
+
+.timer {
+    padding: 0 20px;
+
+    &-input {
+        width: 100%;
+        margin-top: 50px;
+
+        accent-color: var(--color-text);
+    }
+}
+
+.time {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.control-btn {
+    margin-top: 10px;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: space-around;
+}
