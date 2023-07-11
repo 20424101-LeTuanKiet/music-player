@@ -63,6 +63,7 @@ export default function useMusicPlayer() {
         currentMusicAvatar:
             state.currentMusicIndex !== null &&
             state.musicList[state.currentMusicIndex].image,
+
         playPreviousMusic,
         playNextMusic,
     };

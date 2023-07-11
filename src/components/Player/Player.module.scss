@@ -61,21 +61,22 @@
 }
 
 .music-name {
-    font-size: 2rem;
+    font-size: 1.65rem;
     color: var(--color-text);
     font-weight: 500;
     margin-bottom: 30px;
 }
 
 .music-avatar {
-    width: 400px;
-    height: 400px;
+    width: 310px;
+    height: 310px;
     border-radius: 50%;
     border: 1px solid #3d3d3d;
 }
 
 .avatar {
     position: relative;
+    overflow: hidden;
 }
 .music-avatar-circle {
     width: 50px;
@@ -108,8 +109,9 @@
 
 .control-btn,
 .control-btn button {
-    margin: 40px 0 20px 0; //margin-top: 10px;
+    margin: 10px; //margin-top: 10px;
     font-size: 2.5rem;
+    color: var(--color-btn);
     display: flex;
     justify-content: space-around;
 }
@@ -132,4 +134,19 @@
 
 .rotate {
     animation: rotation 6s infinite linear;
+}
+
+@media (min-width: 740px) {
+    .music-avatar {
+        width: 400px;
+        height: 400px;
+    }
+
+    .music-name {
+        font-size: 2rem;
+    }
+
+    .timer {
+        padding: 0 40px;
+    }
 }

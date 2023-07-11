@@ -19,6 +19,15 @@ import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
+function convertSecondsToMinutes(seconds) {
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    if (s < 10) {
+        return m + ':0' + s;
+    }
+    return m + ':' + s;
+}
+
 export default function Player() {
     const {
         playMusicDefault,
@@ -33,8 +42,17 @@ export default function Player() {
 
     const [volume, setVolume] = useState(0.7);
 
-    const handlevolume = (e) => {
+    const [duration, setDuradion] = useState('');
+    const [currentTime, setCurrentTime] = useState('0:00');
+    const [rangeEnd, setRangeEnd] = useState(0);
+    const [rangeCurrent, setRangeCurrent] = useState(0);
+
+    const handleVolume = (e) => {
         setVolume(e.target.value / 100);
+    };
+
+    const handleChange = (e) => {
+        currentPlaying.currentTime = e.target.value;
     };
 
     useEffect(() => {
@@ -47,8 +65,23 @@ export default function Player() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    // Event when audio ended
     currentPlaying.onended = function () {
         playNextMusic();
+    };
+
+    // Event when audio play
+    currentPlaying.oncanplay = function () {
+        const duration = convertSecondsToMinutes(currentPlaying.duration);
+        setDuradion(duration);
+        setRangeEnd(currentPlaying.duration);
+    };
+
+    // Event when audio playing
+    currentPlaying.ontimeupdate = function () {
+        const current = convertSecondsToMinutes(currentPlaying.currentTime);
+        setCurrentTime(current);
+        setRangeCurrent(currentPlaying.currentTime);
     };
 
     const iconVolume = () => {
@@ -72,7 +105,7 @@ export default function Player() {
                         {iconVolume()}
                     </div>
                     <input
-                        onChange={handlevolume}
+                        onChange={handleVolume}
                         className={cx('volume')}
                         type="range"
                         value={volume * 100}
@@ -103,22 +136,22 @@ export default function Player() {
                 </div>
             </div>
             <div className={cx('control')}>
-                {/* <div className={cx('time-duration')}>
+                <div className={cx('time-duration')}>
                     <div className={cx('timer')}>
                         <input
+                            value={rangeCurrent}
+                            onChange={handleChange}
                             className={cx('timer-input')}
                             type="range"
                             min="0"
-                            max="100"
+                            max={rangeEnd}
                         />
                     </div>
                     <div className={cx('time')}>
-                        <div className={cx('time-current')}>0:00</div>
-                        <div className={cx('time-end')}>
-                            {currentPlaying.duration}
-                        </div>
+                        <div className={cx('time-current')}>{currentTime}</div>
+                        <div className={cx('time-end')}>{duration}</div>
                     </div>
-                </div> */}
+                </div>
 
                 <div className={cx('control-btn')}>
                     <FontAwesomeIcon
