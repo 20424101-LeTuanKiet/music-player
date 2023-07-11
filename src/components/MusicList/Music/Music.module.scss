@@ -1,6 +1,7 @@
 .wrapper {
     overflow-y: scroll;
     height: calc(100vh - 150px);
+    margin-top: 20px;
 }
 
 .wrapper::-webkit-scrollbar {
@@ -9,7 +10,8 @@
 
 .music {
     display: flex;
-    margin-top: 20px;
+    padding: 10px 0;
+    position: relative;
 
     &:hover {
         background-color: var(--background-music-hover);
@@ -24,6 +26,12 @@
         width: 60px;
     }
 
+    &-avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     &-avatar img {
         width: var(--music-height);
         height: var(--music-height);
@@ -35,6 +43,7 @@
         line-height: 25px;
 
         &-title {
+            margin-top: 8px;
             font-size: 1.3rem;
         }
 
@@ -42,4 +51,13 @@
             font-size: 1rem;
         }
     }
+}
+
+.music::after {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-line);
+    position: absolute;
+    bottom: 0;
 }

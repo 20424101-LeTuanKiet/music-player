@@ -56,7 +56,6 @@ export default function Player() {
     };
 
     useEffect(() => {
-        console.log(volume);
         currentPlaying.volume = volume / 100;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [volume]);

@@ -63,7 +63,7 @@
 .music-name {
     font-size: 1.65rem;
     color: var(--color-text);
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 30px;
 }
 
@@ -97,7 +97,7 @@
         width: 100%;
         margin-top: 50px;
 
-        accent-color: var(--color-text);
+        accent-color: var(--color-range-input);
     }
 }
 
@@ -110,7 +110,7 @@
 .control-btn,
 .control-btn button {
     margin: 10px; //margin-top: 10px;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--color-btn);
     display: flex;
     justify-content: space-around;
@@ -149,4 +149,57 @@
     .timer {
         padding: 0 40px;
     }
+}
+
+/* Input Track */
+input[type='range']::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    height: 4px;
+}
+
+input[type='range']::-moz-range-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    height: 4px;
+}
+
+input[type='range']::-ms-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    height: 4px;
+}
+
+/* Input Thumb */
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    cursor: ew-resize;
+    margin-top: -5px;
+}
+
+input[type='range']::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    cursor: ew-resize;
+    margin-top: -5px;
+}
+
+input[type='range']::-ms-thumb {
+    -webkit-appearance: none;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    cursor: ew-resize;
+    margin-top: -5px;
 }
