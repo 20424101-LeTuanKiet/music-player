@@ -4,6 +4,15 @@ import { MusicPlayerContext } from '../ConText/MusicPlayerContext';
 export default function useMusicPlayer() {
     const [state, setState] = useContext(MusicPlayerContext);
 
+    function playMusicDefault(index = 1) {
+        state.audioPlayer = new Audio(state.musicList[index].file);
+        setState((state) => ({
+            ...state,
+            currentMusicIndex: index,
+            isPlaying: false,
+        }));
+    }
+
     function playMusic(index) {
         if (index === state.currentMusicIndex) {
             togglePlay();
@@ -28,7 +37,7 @@ export default function useMusicPlayer() {
         setState((state) => ({ ...state, isPlaying: !state.isPlaying }));
     }
 
-    function playPreviousTrack() {
+    function playPreviousMusic() {
         const newIndex =
             (((state.currentMusicIndex + -1) % state.musicList.length) +
                 state.musicList.length) %
@@ -36,14 +45,16 @@ export default function useMusicPlayer() {
         playMusic(newIndex);
     }
 
-    function playNextTrack() {
+    function playNextMusic() {
         const newIndex = (state.currentMusicIndex + 1) % state.musicList.length;
         playMusic(newIndex);
     }
 
     return {
+        playMusicDefault,
         playMusic,
         togglePlay,
+        currentPlaying: state.audioPlayer,
         currentMusicName:
             state.currentMusicIndex !== null &&
             state.musicList[state.currentMusicIndex].name,
@@ -52,7 +63,7 @@ export default function useMusicPlayer() {
         currentMusicAvatar:
             state.currentMusicIndex !== null &&
             state.musicList[state.currentMusicIndex].image,
-        playPreviousTrack,
-        playNextTrack,
+        playPreviousMusic,
+        playNextMusic,
     };
 }

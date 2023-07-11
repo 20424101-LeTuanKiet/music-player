@@ -3,30 +3,75 @@ import {
     faBackward,
     faForward,
     faMoon,
+    faPause,
     faPlay,
     faVolumeHigh,
+    faVolumeLow,
+    faVolumeOff,
+    faVolumeXmark,
 } from '@fortawesome/free-solid-svg-icons';
 
 import classNames from 'classnames/bind';
 
 import useMusicPlayer from '../../hooks/useMusicPlayer';
 import styles from './Player.module.scss';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 export default function Player() {
-    const { currentMusicName, currentMusicAvatar } = useMusicPlayer();
+    const {
+        playMusicDefault,
+        isPlaying,
+        currentMusicName,
+        currentMusicAvatar,
+        currentPlaying,
+        togglePlay,
+        playPreviousMusic,
+        playNextMusic,
+    } = useMusicPlayer();
+
+    const [volume, setVolume] = useState(0.5);
+
+    const handlevolume = (e) => {
+        setVolume(e.target.value / 100);
+    };
+
+    useEffect(() => {
+        currentPlaying.volume = volume;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [volume]);
+
+    useEffect(() => {
+        playMusicDefault();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const iconVolume = () => {
+        if (volume === 0) {
+            return <FontAwesomeIcon icon={faVolumeXmark} />;
+        }
+        if (volume >= 0.7) {
+            return <FontAwesomeIcon icon={faVolumeHigh} />;
+        }
+        if (volume >= 0.3) {
+            return <FontAwesomeIcon icon={faVolumeLow} />;
+        }
+        return <FontAwesomeIcon icon={faVolumeOff} />;
+    };
 
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
-                <div className={cx('header-volumn')}>
-                    <div className={cx('circle', 'volumn-control')}>
-                        <FontAwesomeIcon icon={faVolumeHigh} />
+                <div className={cx('header-volume')}>
+                    <div className={cx('volume-icon', 'volume-control')}>
+                        {iconVolume()}
                     </div>
                     <input
-                        className={cx('volumn')}
+                        onChange={handlevolume}
+                        className={cx('volume')}
                         type="range"
+                        value={volume * 100}
                         min="0"
                         max="100"
                     />
@@ -64,10 +109,24 @@ export default function Player() {
                 </div>
 
                 <div className={cx('control-btn')}>
-                    <FontAwesomeIcon icon={faBackward} />
-                    <FontAwesomeIcon icon={faPlay} />
+                    <FontAwesomeIcon
+                        icon={faBackward}
+                        onClick={playPreviousMusic}
+                        disabled={!currentMusicName}
+                    />
+                    <button onClick={togglePlay} disabled={!currentMusicName}>
+                        {isPlaying ? (
+                            <FontAwesomeIcon icon={faPause} />
+                        ) : (
+                            <FontAwesomeIcon icon={faPlay} />
+                        )}
+                    </button>
                     {/* <FontAwesomeIcon icon={faPause} /> */}
-                    <FontAwesomeIcon icon={faForward} />
+                    <FontAwesomeIcon
+                        icon={faForward}
+                        onClick={playNextMusic}
+                        disabled={!currentMusicName}
+                    />
                 </div>
             </div>
         </div>
