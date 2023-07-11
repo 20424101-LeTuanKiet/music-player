@@ -31,7 +31,7 @@ export default function Player() {
         playNextMusic,
     } = useMusicPlayer();
 
-    const [volume, setVolume] = useState(0.5);
+    const [volume, setVolume] = useState(0.7);
 
     const handlevolume = (e) => {
         setVolume(e.target.value / 100);
@@ -46,6 +46,19 @@ export default function Player() {
         playMusicDefault();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         console.log(currentPlaying.onended);
+
+    //         if (isEnded) {
+    //             // playNextMusic();
+    //         }
+    //     }, 2000);
+
+    //     return () => clearInterval(interval);
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     const iconVolume = () => {
         if (volume === 0) {
@@ -86,14 +99,20 @@ export default function Player() {
                 <h2 className={cx('music-name')}>
                     {currentMusicName || 'Mời bạn chọn bài hát'}
                 </h2>
-                <img
-                    className={cx('music-avatar')}
-                    src={currentMusicAvatar || ''}
-                    alt={currentMusicName || ''}
-                />
+                <div className={cx('avatar')}>
+                    <img
+                        className={cx(
+                            'music-avatar',
+                            isPlaying ? 'rotate' : '',
+                        )}
+                        src={currentMusicAvatar || ''}
+                        alt={currentMusicName || ''}
+                    />
+                    <div className={cx('music-avatar-circle')}></div>
+                </div>
             </div>
             <div className={cx('control')}>
-                <div className={cx('time-duration')}>
+                {/* <div className={cx('time-duration')}>
                     <div className={cx('timer')}>
                         <input
                             className={cx('timer-input')}
@@ -103,10 +122,12 @@ export default function Player() {
                         />
                     </div>
                     <div className={cx('time')}>
-                        <div className={cx('time-start')}>0:00</div>
-                        <div className={cx('time-end')}>3:45</div>
+                        <div className={cx('time-current')}>0:00</div>
+                        <div className={cx('time-end')}>
+                            {currentPlaying.duration}
+                        </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className={cx('control-btn')}>
                     <FontAwesomeIcon

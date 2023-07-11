@@ -7,6 +7,9 @@ import img_TruocKhiEmTonTai from '../asset/images/TruocKhiEmTonTai.jpg';
 import mp3_Gio from '../asset/media/Gio.mp3';
 import img_Gio from '../asset/images/Gio.jpg';
 
+import mp3 from '../asset/media/test.mp3';
+import img from '../asset/images/test.png';
+
 const MusicPlayerContext = createContext([{}, () => {}]);
 
 const MusicPlayerProvider = (props) => {
@@ -33,6 +36,13 @@ const MusicPlayerProvider = (props) => {
                 singer: 'Jank',
                 file: mp3_Gio,
                 image: img_Gio,
+            },
+            {
+                id: 4,
+                name: 'Short',
+                singer: 'Youtube',
+                file: mp3,
+                image: img,
             },
         ],
         currentMusicIndex: null,

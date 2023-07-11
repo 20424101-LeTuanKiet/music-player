@@ -4,7 +4,7 @@ import { MusicPlayerContext } from '../ConText/MusicPlayerContext';
 export default function useMusicPlayer() {
     const [state, setState] = useContext(MusicPlayerContext);
 
-    function playMusicDefault(index = 1) {
+    function playMusicDefault(index = 0) {
         state.audioPlayer = new Audio(state.musicList[index].file);
         setState((state) => ({
             ...state,
