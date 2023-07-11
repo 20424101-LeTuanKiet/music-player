@@ -47,18 +47,9 @@ export default function Player() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         console.log(currentPlaying.onended);
-
-    //         if (isEnded) {
-    //             // playNextMusic();
-    //         }
-    //     }, 2000);
-
-    //     return () => clearInterval(interval);
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
+    currentPlaying.onended = function () {
+        playNextMusic();
+    };
 
     const iconVolume = () => {
         if (volume === 0) {
