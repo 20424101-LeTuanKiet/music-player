@@ -32,14 +32,6 @@ export default function Music() {
                     </div>
                 </div>
             ))}
-            {/* <div className={cx('music-id')}>1</div>
-                <div className={cx('music-avatar')}>
-                    <img src={nhatKyCuaMe} alt="" />
-                </div>
-                <div className={cx('music-description')}>
-                    <div className={cx('music-description-title')}>Name</div>
-                    <div className={cx('music-description-singer')}>Singer</div>
-                </div> */}
         </div>
     );
 }

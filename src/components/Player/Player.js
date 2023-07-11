@@ -40,7 +40,7 @@ export default function Player() {
         playNextMusic,
     } = useMusicPlayer();
 
-    const [volume, setVolume] = useState(0.7);
+    const [volume, setVolume] = useState(70);
 
     const [duration, setDuradion] = useState('');
     const [currentTime, setCurrentTime] = useState('0:00');
@@ -48,7 +48,7 @@ export default function Player() {
     const [rangeCurrent, setRangeCurrent] = useState(0);
 
     const handleVolume = (e) => {
-        setVolume(e.target.value / 100);
+        setVolume(e.target.value);
     };
 
     const handleChange = (e) => {
@@ -56,7 +56,8 @@ export default function Player() {
     };
 
     useEffect(() => {
-        currentPlaying.volume = volume;
+        console.log(volume);
+        currentPlaying.volume = volume / 100;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [volume]);
 
@@ -85,16 +86,16 @@ export default function Player() {
     };
 
     const iconVolume = () => {
-        if (volume === 0) {
-            return <FontAwesomeIcon icon={faVolumeXmark} />;
-        }
-        if (volume >= 0.7) {
+        if (volume >= 70) {
             return <FontAwesomeIcon icon={faVolumeHigh} />;
         }
-        if (volume >= 0.3) {
+        if (volume >= 30) {
             return <FontAwesomeIcon icon={faVolumeLow} />;
         }
-        return <FontAwesomeIcon icon={faVolumeOff} />;
+        if (volume > 0) {
+            return <FontAwesomeIcon icon={faVolumeOff} />;
+        }
+        return <FontAwesomeIcon icon={faVolumeXmark} />;
     };
 
     return (
@@ -108,7 +109,7 @@ export default function Player() {
                         onChange={handleVolume}
                         className={cx('volume')}
                         type="range"
-                        value={volume * 100}
+                        value={volume}
                         min="0"
                         max="100"
                     />
