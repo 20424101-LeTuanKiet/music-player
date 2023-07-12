@@ -34,7 +34,7 @@ export default function Music() {
 
     return (
         <div className={cx('wrapper')}>
-            <h1 className={cx('music-list')}>Play list</h1>
+            <h1 className={cx('music-list')}>Playlist</h1>
             <input
                 value={text}
                 onChange={hanldInputChange}

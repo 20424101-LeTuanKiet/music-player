@@ -6,7 +6,8 @@
     font-size: 1.5rem;
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+    margin: 0 30px 30px 30px;
+    padding: 30px;
 }
 
 .header-volume {
@@ -41,7 +42,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--color-background-icon);
-    color: #fff;
+    color: var(--color-icon);
 }
 
 .volume {
@@ -105,6 +106,11 @@
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
+}
+
+.time-current,
+.time-end {
+    color: var(--color-text);
 }
 
 .control-btn,

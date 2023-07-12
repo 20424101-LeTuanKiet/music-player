@@ -15,7 +15,7 @@ export default function Music() {
                     className={cx('music')}
                     key={index}
                     onClick={() => {
-                        playMusic(music.id);
+                        playMusic(music.id - 1);
                     }}
                 >
                     <div className={cx('music-id')}>{music.id}</div>

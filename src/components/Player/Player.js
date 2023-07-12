@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faBackward,
+    faCloudMoon,
+    faCloudSun,
     faForward,
-    faMoon,
     faPause,
     faPlay,
     faVolumeHigh,
@@ -46,6 +47,59 @@ export default function Player() {
     const [currentTime, setCurrentTime] = useState('0:00');
     const [rangeEnd, setRangeEnd] = useState(0);
     const [rangeCurrent, setRangeCurrent] = useState(0);
+
+    const [darkMode, setDarkMode] = useState(false);
+
+    const handleDarkMode = () => {
+        setDarkMode(!darkMode);
+    };
+
+    useEffect(() => {
+        const root = document.querySelector(':root');
+
+        const setVariables = (vars) =>
+            Object.entries(vars).forEach((v) =>
+                root.style.setProperty(v[0], v[1]),
+            );
+
+        function myFunction(v) {
+            root.style.removeProperty(v);
+        }
+
+        const removeVariables = (vars) => vars.forEach(myFunction);
+
+        if (darkMode === true) {
+            const myVariables = {
+                '--background-music-list': '#1F1F1F',
+                '--background-music-hover': '#1a1a1a',
+
+                '--background-music-player': '#252525',
+
+                '--color-text': '#e3e3e3',
+                '--color-btn': '#e3e3e3',
+                '--color-range-input': '#646464',
+                '--color-icon': '#252525',
+                '--color-background-icon': '#efefef',
+                '--color-line': '#0c0c0c',
+            };
+            setVariables(myVariables);
+        } else {
+            const myVariables = [
+                '--background-music-list',
+                '--background-music-hover',
+
+                '--background-music-player',
+
+                '--color-text',
+                '--color-btn',
+                '--color-range-input',
+                '--color-icon',
+                '--color-background-icon',
+                '--color-line',
+            ];
+            removeVariables(myVariables);
+        }
+    }, [darkMode]);
 
     const handleVolume = (e) => {
         setVolume(e.target.value);
@@ -114,8 +168,12 @@ export default function Player() {
                     />
                 </div>
                 <div className={cx('header-theme')}>
-                    <div className={cx('circle')}>
-                        <FontAwesomeIcon icon={faMoon} />
+                    <div className={cx('circle')} onClick={handleDarkMode}>
+                        {darkMode ? (
+                            <FontAwesomeIcon icon={faCloudSun} />
+                        ) : (
+                            <FontAwesomeIcon icon={faCloudMoon} />
+                        )}
                     </div>
                 </div>
             </div>
