@@ -37,6 +37,7 @@ const MusicPlayerProvider = (props) => {
         ],
         currentMusicIndex: null,
         isPlaying: false,
+        searchText: '',
     });
     return (
         <MusicPlayerContext.Provider value={[state, setState]}>

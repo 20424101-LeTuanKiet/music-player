@@ -50,6 +50,18 @@ export default function useMusicPlayer() {
         playMusic(newIndex);
     }
 
+    function setSearchText(text) {
+        setState((state) => ({ ...state, searchText: text }));
+    }
+
+    function getMusicList() {
+        return state.musicList.filter((music) => {
+            return music.name
+                .toLowerCase()
+                .includes(state.searchText.toLowerCase());
+        });
+    }
+
     return {
         playMusicDefault,
         playMusic,
@@ -58,7 +70,9 @@ export default function useMusicPlayer() {
         currentMusicName:
             state.currentMusicIndex !== null &&
             state.musicList[state.currentMusicIndex].name,
-        musicList: state.musicList,
+        // musicList: state.musicList,
+        musicList: getMusicList(),
+
         isPlaying: state.isPlaying,
         currentMusicAvatar:
             state.currentMusicIndex !== null &&
@@ -66,5 +80,6 @@ export default function useMusicPlayer() {
 
         playPreviousMusic,
         playNextMusic,
+        setSearchText,
     };
 }
