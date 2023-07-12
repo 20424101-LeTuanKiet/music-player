@@ -70,6 +70,9 @@ export default function useMusicPlayer() {
         currentMusicName:
             state.currentMusicIndex !== null &&
             state.musicList[state.currentMusicIndex].name,
+        currentSinger:
+            state.currentMusicIndex !== null &&
+            state.musicList[state.currentMusicIndex].singer,
         // musicList: state.musicList,
         musicList: getMusicList(),
 

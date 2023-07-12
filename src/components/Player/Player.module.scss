@@ -1,5 +1,10 @@
 .wrapper {
     background-color: var(--background-music-player);
+    // height: calc(100vh - 115px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
 }
 
 .header {
@@ -7,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     margin: 0 30px 30px 30px;
-    padding: 30px;
+    padding-top: 30px;
 }
 
 .header-volume {
@@ -59,18 +64,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: calc(100vh - 195px);
 }
 
 .music-name {
     font-size: 1.65rem;
     color: var(--color-text);
     font-weight: 600;
+    line-height: 1.69rem;
+}
+.singer {
     margin-bottom: 30px;
+    font-size: 1.1rem;
 }
 
 .music-avatar {
-    width: 310px;
-    height: 310px;
+    width: 80vw;
+    height: 80vw;
     border-radius: 50%;
     border: 1px solid #3d3d3d;
 }
@@ -96,7 +106,7 @@
 
     &-input {
         width: 100%;
-        margin-top: 50px;
+        margin-top: 20px;
 
         accent-color: var(--color-range-input);
     }
@@ -109,13 +119,26 @@
 }
 
 .time-current,
-.time-end {
+.time-end,
+.song {
     color: var(--color-text);
+}
+
+.time-current,
+.time-end {
+    width: 80px;
+}
+
+.time-current {
+    text-align: left;
+}
+.time-end {
+    text-align: right;
 }
 
 .control-btn,
 .control-btn button {
-    margin: 10px; //margin-top: 10px;
+    margin: 0 10px 10px 10px; //margin-top: 10px;
     font-size: 2rem;
     color: var(--color-btn);
     display: flex;
@@ -127,6 +150,14 @@
     border: none;
     outline: none;
     background-color: transparent;
+}
+
+.control {
+    position: fixed;
+    bottom: 0;
+    background-color: var(--background-music-player);
+    width: 100%;
+    z-index: 99;
 }
 
 @keyframes rotation {
@@ -150,10 +181,27 @@
 
     .music-name {
         font-size: 2rem;
+        line-height: 2rem;
+    }
+
+    .singer {
+        font-size: 1.15rem;
     }
 
     .timer {
         padding: 0 40px;
+    }
+
+    .content {
+        margin-bottom: 15px;
+    }
+
+    .control {
+        position: relative;
+    }
+
+    .song {
+        display: none;
     }
 }
 

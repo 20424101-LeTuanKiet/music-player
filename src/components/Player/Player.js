@@ -34,6 +34,7 @@ export default function Player() {
         playMusicDefault,
         isPlaying,
         currentMusicName,
+        currentSinger,
         currentMusicAvatar,
         currentPlaying,
         togglePlay,
@@ -181,6 +182,7 @@ export default function Player() {
                 <h2 className={cx('music-name')}>
                     {currentMusicName || 'Mời bạn chọn bài hát'}
                 </h2>
+                <i className={cx('singer')}>{currentSinger}</i>
                 <div className={cx('avatar')}>
                     <img
                         className={cx(
@@ -207,6 +209,7 @@ export default function Player() {
                     </div>
                     <div className={cx('time')}>
                         <div className={cx('time-current')}>{currentTime}</div>
+                        <div className={cx('song')}>{currentMusicName}</div>
                         <div className={cx('time-end')}>{duration}</div>
                     </div>
                 </div>

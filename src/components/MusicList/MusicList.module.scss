@@ -2,6 +2,7 @@
     background-color: var(--background-music-list);
     padding: 0 20px;
     height: 100vh;
+    margin-bottom: 120px;
 }
 
 .music-list {
@@ -17,5 +18,11 @@
         width: 100%;
         outline: none;
         border: none;
+    }
+}
+
+@media (min-width: 740px) {
+    .wrapper {
+        margin-bottom: 0;
     }
 }
