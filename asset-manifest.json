@@ -1,19 +1,29 @@
 {
   "files": {
     "main.css": "/music-player/static/css/main.817f504f.css",
-    "main.js": "/music-player/static/js/main.63d9a147.js",
+    "main.js": "/music-player/static/js/main.00b042fa.js",
     "static/media/NhatKyCuaMe.mp3": "/music-player/static/media/NhatKyCuaMe.556e19e9833bcfca10e7.mp3",
+    "static/media/MuonRoiMaSaoCon.mp3": "/music-player/static/media/MuonRoiMaSaoCon.6d52583278080e430367.mp3",
     "static/media/Gio.mp3": "/music-player/static/media/Gio.2ff3b7d50ff5cfc3889a.mp3",
+    "static/media/Sorry.mp3": "/music-player/static/media/Sorry.ea5ad7583e1262f5e9e2.mp3",
     "static/media/TruocKhiEmTonTai.mp3": "/music-player/static/media/TruocKhiEmTonTai.feb9285753151c499884.mp3",
+    "static/media/DuaEmVeNha.mp3": "/music-player/static/media/DuaEmVeNha.6e5b50d1098161564dc6.mp3",
+    "static/media/DiVangNhatNhoa.mp3": "/music-player/static/media/DiVangNhatNhoa.51e2349242016a559131.mp3",
+    "static/media/DayXeBo.mp3": "/music-player/static/media/DayXeBo.f23b818d64a4aac486b4.mp3",
+    "static/media/DuaEmVeNha.jpg": "/music-player/static/media/DuaEmVeNha.b31bebccb929e08bd777.jpg",
+    "static/media/DayXeBo.jpg": "/music-player/static/media/DayXeBo.f247a18371ff85ab96f9.jpg",
     "static/media/Gio.jpg": "/music-player/static/media/Gio.958fc844b9f08ae9ca15.jpg",
+    "static/media/MuonRoiMaSaoCon.png": "/music-player/static/media/MuonRoiMaSaoCon.762204c11ced153d5d16.png",
     "static/media/nhatKyCuaMe.jpg": "/music-player/static/media/nhatKyCuaMe.dffbe239e97266f67c1f.jpg",
+    "static/media/DiVangNhatNhoa.jpg": "/music-player/static/media/DiVangNhatNhoa.402050810ff82072e206.jpg",
     "static/media/TruocKhiEmTonTai.jpg": "/music-player/static/media/TruocKhiEmTonTai.0e7e329578db34d0b7d9.jpg",
+    "static/media/Sorry.jpg": "/music-player/static/media/Sorry.217acafb8c9fe507d1ce.jpg",
     "index.html": "/music-player/index.html",
     "main.817f504f.css.map": "/music-player/static/css/main.817f504f.css.map",
-    "main.63d9a147.js.map": "/music-player/static/js/main.63d9a147.js.map"
+    "main.00b042fa.js.map": "/music-player/static/js/main.00b042fa.js.map"
   },
   "entrypoints": [
     "static/css/main.817f504f.css",
-    "static/js/main.63d9a147.js"
+    "static/js/main.00b042fa.js"
   ]
 }
