@@ -39,7 +39,7 @@ export default function Music() {
                 value={text}
                 onChange={hanldInputChange}
                 className={cx('music-list-search-input')}
-                placeholder="Tìm kiếm bằng tên bài hát..."
+                placeholder="Nhập tên bài hát cần tìm..."
             />
             <MusicList />
         </div>

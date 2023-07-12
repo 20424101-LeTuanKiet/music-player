@@ -16,6 +16,14 @@ import mp3_MuonRoiMaSaoCon from '../asset/media/MuonRoiMaSaoCon.mp3';
 import img_MuonRoiMaSaoCon from '../asset/images/MuonRoiMaSaoCon.png';
 import mp3_DayXeBo from '../asset/media/DayXeBo.mp3';
 import img_DayXeBo from '../asset/images/DayXeBo.jpg';
+import mp3_NauAnChoEm from '../asset/media/NauAnChoEm.mp3';
+import img_NauAnChoEm from '../asset/images/NauAnChoEm.jpg';
+import mp3_GieoQue from '../asset/media/GieoQue.mp3';
+import img_GieoQue from '../asset/images/GieoQue.jpg';
+import mp3_TuBo from '../asset/media/TuBo.mp3';
+import img_TuBo from '../asset/images/TuBo.jpg';
+import mp3_GapMeTrongMo from '../asset/media/GapMeTrongMo.mp3';
+import img_GapMeTrongMo from '../asset/images/GapMeTrongMo.jpg';
 
 const MusicPlayerContext = createContext([{}, () => {}]);
 
@@ -78,6 +86,34 @@ const MusicPlayerProvider = (props) => {
                 singer: 'Hà Nhi',
                 file: mp3_Sorry,
                 image: img_Sorry,
+            },
+            {
+                id: 9,
+                name: 'Nấu ăn cho em',
+                singer: 'Đen ft PiaLinh',
+                file: mp3_NauAnChoEm,
+                image: img_NauAnChoEm,
+            },
+            {
+                id: 10,
+                name: 'Gieo quẻ',
+                singer: 'Hoàng Thùy Linh, Đen',
+                file: mp3_GieoQue,
+                image: img_GieoQue,
+            },
+            {
+                id: 11,
+                name: 'Từ bỏ',
+                singer: 'Erik',
+                file: mp3_TuBo,
+                image: img_TuBo,
+            },
+            {
+                id: 12,
+                name: 'Gặp mẹ trong mơ',
+                singer: 'Thùy Chi',
+                file: mp3_GapMeTrongMo,
+                image: img_GapMeTrongMo,
             },
         ],
         currentMusicIndex: null,
