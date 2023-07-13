@@ -13,25 +13,28 @@ export default function useMusicPlayer() {
         }));
     }
 
-    function playMusic(index) {
+    function playMusic(index, play = true) {
         if (index === state.currentMusicIndex) {
-            togglePlay();
+            // togglePlay();
         } else {
             state.audioPlayer.pause();
             state.audioPlayer = new Audio(state.musicList[index].file);
-            state.audioPlayer.play();
+            if (play) {
+                state.audioPlayer.play();
+            }
             setState((state) => ({
                 ...state,
                 currentMusicIndex: index,
-                isPlaying: true,
+                isPlaying: play,
             }));
         }
     }
 
-    function togglePlay() {
+    function togglePlay(time = 0) {
         if (state.isPlaying) {
             state.audioPlayer.pause();
         } else {
+            state.audioPlayer.currentTime = time;
             state.audioPlayer.play();
         }
         setState((state) => ({ ...state, isPlaying: !state.isPlaying }));
@@ -70,6 +73,9 @@ export default function useMusicPlayer() {
         currentMusicName:
             state.currentMusicIndex !== null &&
             state.musicList[state.currentMusicIndex].name,
+        currentMusicId:
+            state.currentMusicIndex !== null &&
+            state.musicList[state.currentMusicIndex].id,
         currentSinger:
             state.currentMusicIndex !== null &&
             state.musicList[state.currentMusicIndex].singer,

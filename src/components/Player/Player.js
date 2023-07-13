@@ -32,11 +32,13 @@ function convertSecondsToMinutes(seconds) {
 export default function Player() {
     const {
         playMusicDefault,
+        playMusic,
         isPlaying,
         currentMusicName,
         currentSinger,
         currentMusicAvatar,
         currentPlaying,
+        currentMusicId,
         togglePlay,
         playPreviousMusic,
         playNextMusic,
@@ -51,9 +53,45 @@ export default function Player() {
 
     const [darkMode, setDarkMode] = useState(false);
 
+    const [currentTimePlaying, setCurrentTimePlaying] = useState(0);
+
     const handleDarkMode = () => {
         setDarkMode(!darkMode);
     };
+
+    // Set state current playing
+    useEffect(() => {
+        console.log(currentMusicId);
+        if (currentMusicId !== false) {
+            localStorage.setItem('current-id', currentMusicId);
+        }
+        if (rangeCurrent !== 0) {
+            localStorage.setItem('current-time', rangeCurrent);
+        }
+    }, [currentMusicId, rangeCurrent]);
+
+    // Get state current playing
+    useEffect(() => {
+        const currentId = localStorage.getItem('current-id') || 1;
+        const currentTime = localStorage.getItem('current-time') || 0;
+        setCurrentTimePlaying(currentTime);
+
+        console.log(currentId);
+
+        playMusic(currentId - 1, false);
+        setRangeCurrent(currentTime);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    // Get state dark-mode
+    useEffect(() => {
+        const stateDarkMode = JSON.parse(localStorage.getItem('dark-mode'));
+        if (stateDarkMode !== darkMode) {
+            setDarkMode(stateDarkMode);
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         const root = document.querySelector(':root');
@@ -69,28 +107,11 @@ export default function Player() {
 
         const removeVariables = (vars) => vars.forEach(myFunction);
 
-        if (darkMode === true) {
-            const myVariables = {
-                '--background-music-list': '#1F1F1F',
-                '--background-music-hover': '#1a1a1a',
-
-                '--background-music-player': '#252525',
-
-                '--color-text': '#e3e3e3',
-                '--color-btn': '#e3e3e3',
-                '--color-range-input': '#646464',
-                '--color-icon': '#252525',
-                '--color-background-icon': '#efefef',
-                '--color-line': '#0c0c0c',
-            };
-            setVariables(myVariables);
-        } else {
+        const clear = () => {
             const myVariables = [
                 '--background-music-list',
                 '--background-music-hover',
-
                 '--background-music-player',
-
                 '--color-text',
                 '--color-btn',
                 '--color-range-input',
@@ -99,8 +120,35 @@ export default function Player() {
                 '--color-line',
             ];
             removeVariables(myVariables);
+        };
+
+        const setLocalStoreDarkMode = () => {
+            localStorage.setItem('dark-mode', darkMode);
+        };
+
+        if (darkMode === true) {
+            const myVariables = {
+                '--background-music-list': '#1F1F1F',
+                '--background-music-hover': '#1a1a1a',
+                '--background-music-player': '#252525',
+                '--color-text': '#e3e3e3',
+                '--color-btn': '#e3e3e3',
+                '--color-range-input': '#646464',
+                '--color-icon': '#252525',
+                '--color-background-icon': '#efefef',
+                '--color-line': '#0c0c0c',
+            };
+            setVariables(myVariables);
+            setLocalStoreDarkMode();
+        } else {
+            clear();
+            setLocalStoreDarkMode();
         }
     }, [darkMode]);
+
+    const togglePlayMusic = () => {
+        togglePlay(currentTimePlaying);
+    };
 
     const handleVolume = (e) => {
         setVolume(e.target.value);
@@ -115,10 +163,10 @@ export default function Player() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [volume]);
 
-    useEffect(() => {
-        playMusicDefault();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     playMusicDefault();
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     // Event when audio ended
     currentPlaying.onended = function () {
@@ -137,6 +185,7 @@ export default function Player() {
         const current = convertSecondsToMinutes(currentPlaying.currentTime);
         setCurrentTime(current);
         setRangeCurrent(currentPlaying.currentTime);
+        setCurrentTimePlaying(currentPlaying.currentTime);
     };
 
     const iconVolume = () => {
@@ -220,7 +269,10 @@ export default function Player() {
                         onClick={playPreviousMusic}
                         disabled={!currentMusicName}
                     />
-                    <button onClick={togglePlay} disabled={!currentMusicName}>
+                    <button
+                        onClick={togglePlayMusic}
+                        disabled={!currentMusicName}
+                    >
                         {isPlaying ? (
                             <FontAwesomeIcon icon={faPause} />
                         ) : (
