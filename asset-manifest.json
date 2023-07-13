@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/music-player/static/css/main.04bfa87a.css",
-    "main.js": "/music-player/static/js/main.7e33972c.js",
+    "main.css": "/music-player/static/css/main.0e57e684.css",
+    "main.js": "/music-player/static/js/main.f29c5d00.js",
     "static/media/NhatKyCuaMe.mp3": "/music-player/static/media/NhatKyCuaMe.556e19e9833bcfca10e7.mp3",
     "static/media/MuonRoiMaSaoCon.mp3": "/music-player/static/media/MuonRoiMaSaoCon.6d52583278080e430367.mp3",
     "static/media/Gio.mp3": "/music-player/static/media/Gio.2ff3b7d50ff5cfc3889a.mp3",
@@ -27,11 +27,11 @@
     "static/media/TuBo.jpg": "/music-player/static/media/TuBo.f46e87c2d3913969f6d3.jpg",
     "static/media/Sorry.jpg": "/music-player/static/media/Sorry.217acafb8c9fe507d1ce.jpg",
     "index.html": "/music-player/index.html",
-    "main.04bfa87a.css.map": "/music-player/static/css/main.04bfa87a.css.map",
-    "main.7e33972c.js.map": "/music-player/static/js/main.7e33972c.js.map"
+    "main.0e57e684.css.map": "/music-player/static/css/main.0e57e684.css.map",
+    "main.f29c5d00.js.map": "/music-player/static/js/main.f29c5d00.js.map"
   },
   "entrypoints": [
-    "static/css/main.04bfa87a.css",
-    "static/js/main.7e33972c.js"
+    "static/css/main.0e57e684.css",
+    "static/js/main.f29c5d00.js"
   ]
 }
