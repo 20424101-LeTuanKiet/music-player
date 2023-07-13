@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/music-player/static/css/main.0e57e684.css",
+    "main.css": "/music-player/static/css/main.093b35ab.css",
     "main.js": "/music-player/static/js/main.f29c5d00.js",
     "static/media/NhatKyCuaMe.mp3": "/music-player/static/media/NhatKyCuaMe.556e19e9833bcfca10e7.mp3",
     "static/media/MuonRoiMaSaoCon.mp3": "/music-player/static/media/MuonRoiMaSaoCon.6d52583278080e430367.mp3",
@@ -27,11 +27,11 @@
     "static/media/TuBo.jpg": "/music-player/static/media/TuBo.f46e87c2d3913969f6d3.jpg",
     "static/media/Sorry.jpg": "/music-player/static/media/Sorry.217acafb8c9fe507d1ce.jpg",
     "index.html": "/music-player/index.html",
-    "main.0e57e684.css.map": "/music-player/static/css/main.0e57e684.css.map",
+    "main.093b35ab.css.map": "/music-player/static/css/main.093b35ab.css.map",
     "main.f29c5d00.js.map": "/music-player/static/js/main.f29c5d00.js.map"
   },
   "entrypoints": [
-    "static/css/main.0e57e684.css",
+    "static/css/main.093b35ab.css",
     "static/js/main.f29c5d00.js"
   ]
 }
